@@ -2,7 +2,7 @@
 
 I am working in [Intelligence Computing System Lab](http://ics.nankai.edu.cn/) in **Nankai University**. 
 
-This website records some technical documents in lots of fields, visit [[here](/guide/)] plz.
+This website records some technical documents in lots of fields, visit [[here](/docs/)] plz.
 
 ## About
 
