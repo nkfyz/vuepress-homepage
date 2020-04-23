@@ -184,3 +184,8 @@ contract C {
 }
 ```
 
+<style>
+pre{
+	background-color: #123456;
+	}
+</style>
