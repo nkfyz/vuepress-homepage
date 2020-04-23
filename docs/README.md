@@ -18,7 +18,7 @@ Netease Cloud Music: [Famlinve](https://www.music.com/)
 
 ## Footer
 
-[Yaozheng Fang's Documents](http://fangyaozheng.com/)
+All rights reserved by [Yaozheng Fang's Documents](http://fangyaozheng.com/) © 2020
 
-This website is Powered by [Github](https://github.com/) and Hosted by  [Netlify](https://netlify.com/)
+This website is Powered by [Github](https://github.com/) and Hosted by  [Netlify](https://netlify.com/).
 
