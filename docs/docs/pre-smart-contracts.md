@@ -11,7 +11,6 @@ cd go-ethereum
 vim /core/vm/contracts.go
 
 #在相应位置添加
-```
 ......
 common.BytesToAddress([]byte{10}): &fyzAdd{},
 ......
@@ -28,16 +27,11 @@ func (c *fyzAdd) Run(input []byte) ([]byte, error) {
         y := new(big.Int).SetBytes(getData(input, 32, 32))
         return common.LeftPadBytes(x.Add(x, y).Bytes(), 32), nil
 }
-```
-
 
 #项目编译
 make all
-
-#运行
-cd/build/bin
-chmod +x geth
-./geth init genesis.json
+#或者
+make geth
 ```
 
 ## 启动Geth下的Ethereum
@@ -66,9 +60,16 @@ chmod +x geth
 
 ```
 
+启动Geth客户端
+
 ``` sh
+cd go-ethereum/build/bin
+chmod +x geth
+
+#生成创始块
 ./geth --datadir "data" init ./genesis.json
 
+#启动结点
 ./geth --datadir "data" --networkid 666 --allow-insecure-unlock --nodiscover console
 ```
 
