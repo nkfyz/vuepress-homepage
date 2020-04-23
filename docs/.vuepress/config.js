@@ -1,23 +1,44 @@
+const fs = require('fs')
+function getSidebar(dir) {
+    const files = fs.readdirSync(`${__dirname}/../${dir}`)
+    const sidebar = files.map(file => {
+        let fileName = file.split('.')[0]
+        if (fileName.toUpperCase() === 'README') {
+            return ''
+        }
+        else {
+            return fileName
+        }
+    })
+    return sidebar
+}
+
+
+/*const path = require("path")
+const rootpath = path.dirname(__dirname) //执行一次dirname将目录定位到docs目录
+const utils = require('./index.js');
+const filehelper = require('./initPage.js');
+*/
 module.exports = {
-  title: "Harry Potter",
-  description: "The description of the site.",
+  title: "Yaozheng Fang's Documents",
+  description: "ICS Lab Rights.",
   head: [["link", { rel: "icon", href: `/logo.png` }]],
   base: "/",
   dest: "./dist",
 
   themeConfig: {
-    search: false,
+    search: true,
     nav: [
       { text: "Home", link: "/" },
-      { text: "About", link: "/about/" },
-      { text: "Projects", link: "/projects/" },
-      { text: "Guide", link: "/guide/" },
-      { text: "GitHub", link: "https://github.com/mtobeiyf/vuepress-homepage" }
+      /*{ text: "About", link: "/about/" },*/
+      /*{ text: "文章", link: "/article/"},*/
+      { text: "Guide", link: "/docs/" }
     ],
     sidebar: {
-      '/guide/': genSidebarConfig('Guide')
+      '/docs/': genSidebarConfig('文档', getSidebar('guide'), false) ,
+      /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
-    lastUpdated: 'Last Updated'
+    lastUpdated: '最后更新时间'
   },
 
   markdown: {
@@ -27,20 +48,15 @@ module.exports = {
       md.use(require("markdown-it-katex"));
     }
   }
+ 
 };
 
-function genSidebarConfig (title) {
-  return [
-    {
+function genSidebarConfig (title, children = [''], collapsable) {
+  var arr = new Array();
+  arr.push({
       title,
-      collapsable: false,
-      children: [
-        '',
-        'getting-started',
-        'customize',
-        'advanced',
-      ]
-    }
-  ]
+      children,
+      collapsable
+    })
+  return arr;
 }
-
