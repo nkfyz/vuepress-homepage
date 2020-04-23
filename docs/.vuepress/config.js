@@ -29,13 +29,13 @@ module.exports = {
   themeConfig: {
     search: true,
     nav: [
-      { text: "Home", link: "/" },
+      { text: "主页", link: "/" },
       /*{ text: "About", link: "/about/" },*/
       /*{ text: "文章", link: "/article/"},*/
-      { text: "Guide", link: "/docs/" }
+      { text: "历史文档", link: "/docs/" }
     ],
     sidebar: {
-      '/docs/': genSidebarConfig('文档', getSidebar('guide'), false) ,
+      '/docs/': genSidebarConfig('文档', getSidebar('docs'), false) ,
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
     lastUpdated: '最后更新时间'
