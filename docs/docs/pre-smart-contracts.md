@@ -11,6 +11,24 @@ cd go-ethereum
 vim /core/vm/contracts.go
 
 #在相应位置添加
+```
+......
+common.BytesToAddress([]byte{10}): &fyzAdd{},
+......
+// fyzAdd implemented as a native contract.
+type fyzAdd struct{}
+
+func (c *fyzAdd) RequiredGas(input []byte) uint64 {
+        return uint64(len(input)+31)/32
+}
+
+func (c *fyzAdd) Run(input []byte) ([]byte, error) {
+
+        x := new(big.Int).SetBytes(getData(input, 0, 32))
+        y := new(big.Int).SetBytes(getData(input, 32, 32))
+        return common.LeftPadBytes(x.Add(x, y).Bytes(), 32), nil
+}
+```
 
 
 #项目编译
@@ -136,3 +154,32 @@ contract C {
 + uint256占8 byte, 0x20个mem槽, `4 x 8 = 32`
 
 > 更多 Solidity-Assembly 语法请查阅 [Solidity Documents](https://solidity.readthedocs.io/zh/latest/assembly.html) :hugs:
+
+## 调用fyzAdd()
+
+__特别注意：输出内存空间不能够和输入空间重复__
+
+``` solidity
+pragma solidity ^0.4.11;
+
+contract C {
+    function f(uint256 ax, uint256 bx) public constant returns (uint256 p) {
+        
+        uint256 add1;
+        uint256 add2;
+        add1 = ax;
+        add2 = bx;
+        
+        assembly{
+            mstore(0, add1)
+            mstore(0x20, add2)
+            if call(not(0), 0xa, 0, 0, 0x40, 0x40, 0x60){
+                return(0x40, 0x60) //return 8
+                //return(0x40, 0x20) //return 2
+                
+            }
+        }
+    }
+}
+```
+
