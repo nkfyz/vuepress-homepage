@@ -6,7 +6,7 @@ This website records some technical documents in lots of fields, visit [[here](/
 
 ## About
 
-This website has no SSL certification so we `WILL NOT` collect any information from your local browser. 
+This website already had a SSL certification, and you are under the HTTPS connection with this site. But we `WILL NOT` collect any information from your local browser including `COOKIE`. 
 
 ## Contacts
 
@@ -18,7 +18,7 @@ Netease Cloud Music: [Famlinve](https://www.music.com/)
 
 ## Footer
 
-All rights reserved by [Yaozheng Fang's Documents](http://fangyaozheng.com/) © 2020
+All rights reserved by [Yaozheng Fang's Documents](http://fangyaozheng.com/) © 2020.
 
 This website is Powered by [Github](https://github.com/) and Hosted by  [Netlify](https://netlify.com/).
 
