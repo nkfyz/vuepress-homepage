@@ -1,7 +1,17 @@
 # Ethereum中的golang细节
 
-## 数据转换
+## 主要操作
 
-+ `[]byte` 转为 `Int`
-+ `Int` 转为 `Uint64` 进行计算
-+ `Uint64` 转回 `[]byte`
++ `[]byte` 转为 `*Int`
++ `Int` 转为 `Int64` 进行计算
++ `Int64` 转回 `[]byte`
+
+## 基本函数
+
+``` go
+# []byte 转换为 *Int 类型, 再转换为 Int64 类型
+x_uint64 := new(big.Int).SetBytes(getData(input, 0, 32)).Int64()
+
+# Int64 转换为 []byte 类型
+common.LeftPadBytes(big.NewInt(temp).Bytes(), 32)
+```
