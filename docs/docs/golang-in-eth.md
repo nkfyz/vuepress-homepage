@@ -15,3 +15,7 @@ x_uint64 := new(big.Int).SetBytes(getData(input, 0, 32)).Int64()
 // Int64 转换为 []byte 类型
 common.LeftPadBytes(big.NewInt(temp).Bytes(), 32)
 ```
+
+## 官方参考
+
+[Package big](https://golang.org/pkg/math/big/)
