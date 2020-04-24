@@ -9,9 +9,9 @@
 ## 基本函数
 
 ``` go
-# []byte 转换为 *Int 类型, 再转换为 Int64 类型
+// []byte 转换为 *Int 类型, 再转换为 Int64 类型
 x_uint64 := new(big.Int).SetBytes(getData(input, 0, 32)).Int64()
 
-# Int64 转换为 []byte 类型
+// Int64 转换为 []byte 类型
 common.LeftPadBytes(big.NewInt(temp).Bytes(), 32)
 ```
