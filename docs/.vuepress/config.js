@@ -38,8 +38,7 @@ module.exports = {
       '/docs/': genSidebarConfig('文档', getSidebar('docs'), false) ,
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
-    lastUpdated: '最后更新时间',
-    lastUpdated: true
+    lastUpdated: '最后更新时间'
   },
 
   markdown: {
