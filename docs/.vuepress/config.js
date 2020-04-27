@@ -32,10 +32,12 @@ module.exports = {
       { text: "主页", link: "/" },
       /*{ text: "About", link: "/about/" },*/
       /*{ text: "文章", link: "/article/"},*/
-      { text: "历史文档", link: "/docs/" }
+      { text: "文档", link: "/perface/" }
     ],
     sidebar: {
+      '/perface/': genSidebarConfig('前言', getSidebar('perface'), false) ,
       '/docs/': genSidebarConfig('文档', getSidebar('docs'), false) ,
+      
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
     lastUpdated: '最后更新时间'
