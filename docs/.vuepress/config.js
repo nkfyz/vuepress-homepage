@@ -54,11 +54,10 @@ module.exports = {
 
 function genSidebarConfig (title, children = [''], title1, path1, children1 = [''], collapsable) {
   var arr = new Array();
-    arr.push({
+    arr.push({title:'写在前面', path:'/perface/', children: ['/'], collapsable},{
       title,
-        path: path1,
       children,
       collapsable
-    },{title1,  children1, collapsable})
+    })
   return arr;
 }
