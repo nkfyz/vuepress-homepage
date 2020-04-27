@@ -35,7 +35,7 @@ module.exports = {
       { text: "文档", link: "/docs/" }
     ],
     sidebar: {
-      '/docs/': genSidebarConfig('写在前面', getSidebar('perface'), '文档', '/perface/', getSidebar('docs'), false)
+      '/docs/': genSidebarConfig('写在前面', getSidebar('docs'), '文档', '/perface/', getSidebar('docs'), false)
       
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
@@ -54,8 +54,8 @@ module.exports = {
 
 function genSidebarConfig (title, children = [''], title1, path1, children1 = [''], collapsable) {
   var arr = new Array();
-    arr.push({title:'写在前面', path:'/perface/', children: ['/'], collapsable},{
-      title,
+    arr.push({title:'写在前面', path:'/docs/', children: ['/docs/'], collapsable},{
+      title : '文档',
       children,
       collapsable
     })
