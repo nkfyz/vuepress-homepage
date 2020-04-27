@@ -35,7 +35,7 @@ module.exports = {
       { text: "文档", link: "/docs/" }
     ],
     sidebar: {
-      '/docs/': [genSidebarConfig('文档', getSidebar('docs'), false), genSidebarConfig('文档', getSidebar('docs'), false)]
+      '/docs/': genSidebarConfig('文档', getSidebar('docs'), false)
       
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
     },
