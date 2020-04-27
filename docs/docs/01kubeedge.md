@@ -1,4 +1,4 @@
-# 01 Kubeedge推荐搭建流程
+# Kubeedge推荐搭建流程
 
 本文主要参考[@三月沙](https://sanyuesha.com/2019/05/17/kubernetes-tutorial-for-beginner/)
 
