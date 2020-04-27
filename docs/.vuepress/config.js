@@ -34,11 +34,11 @@ module.exports = {
       /*{ text: "文章", link: "/article/"},*/
       { text: "文档", link: "/docs/" }
     ],
-    sidebar: [
-      '/docs/': genSidebarConfig('文档', getSidebar('docs'), false) ,
+    sidebar: {
+      '/docs/': [genSidebarConfig('文档', getSidebar('docs'), false), genSidebarConfig('文档', getSidebar('docs'), false)]
       
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
-       ],
+    },
     lastUpdated: '最后更新时间'
   },
 
@@ -54,11 +54,6 @@ module.exports = {
 
 function genSidebarConfig (title, children = [''], collapsable) {
   var arr = new Array();
-  arr.push({
-    '写在前面',
-      ['README'],
-      false
-  })
     arr.push({
       title,
       children,
