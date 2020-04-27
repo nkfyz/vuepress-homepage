@@ -61,7 +61,7 @@ function genSidebarConfig (title, children = [''], collapsable) {
     },{
     '前言',
       ['README'],
-      FALSE
+      false
     })
   return arr;
 }
