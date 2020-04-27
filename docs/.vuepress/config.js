@@ -35,9 +35,7 @@ module.exports = {
       { text: "文档", link: "/docs/" }
     ],
     sidebar: [
-      /*'/docs/': genSidebarConfig('见字如面', getSidebar('perface'), false) ,*/
-        '/docs/': [genSidebarConfig('见字如面', getSidebar('perface'), false) ,
-        genSidebarConfig('文档', getSidebar('docs'), false) ,]
+      '/docs/': genSidebarConfig('文档', getSidebar('docs'), false) ,
       
       /*'/guide/' : utils.genSidebar('测试', filehelper.getFileName(rootpath+"/guide/"), false)*/
        ],
@@ -60,6 +58,10 @@ function genSidebarConfig (title, children = [''], collapsable) {
       title,
       children,
       collapsable
+    },{
+    '前言',
+      ['README'],
+      FALSE
     })
   return arr;
 }
