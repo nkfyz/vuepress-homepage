@@ -58,6 +58,6 @@ function genSidebarConfig (title, children = [''], title1, path1, children1 = ['
       title,
       children,
       collapsable
-    },{title1, path1, children1, collapsable})
+    },{title1, path: path1, children1, collapsable})
   return arr;
 }
