@@ -55,13 +55,14 @@ module.exports = {
 function genSidebarConfig (title, children = [''], collapsable) {
   var arr = new Array();
   arr.push({
+    '写在前面',
+      ['README'],
+      false
+  })
+    arr.push({
       title,
       children,
       collapsable
-    },{
-    '前言',
-      ['README'],
-      false
     })
   return arr;
 }
