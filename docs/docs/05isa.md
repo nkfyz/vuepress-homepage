@@ -14,34 +14,58 @@
 + `/core/vm/jump_table.go` 负责注册
 + `/core/vm/instructions.go` 负责编制逻辑
 
-## 基本的卷积算子指令
+## 卷积指令
 
 ``` go
-var core_row, core_column int = 5, 5
+func opConv(pc *uint64, interpreter *EVMInterpreter, callContext *callCtx) ([]byte, error){
 
-var core = [5][5]int{
-{1, 1, 1, 1, 1},
-{1, 1, 1, 1, 1},
-{1, 1, 1, 1, 1},
-{1, 1, 1, 1, 1},
-{1, 1, 1, 1, 1}}
+        offset := 0
+        
+        core_row := int(new(big.Int).SetBytes(callContext.memory.GetPtr(int64(offset), 32)).Int64())
+        
+        offset = offset + 32 
+        
+        var temp int = 0
+        
+        var i, j int
+        
+        for i = 0; i < core_row; i++{
+                for j = 0; j < core_row; j++{
+                        core := int(new(big.Int).SetBytes(callContext.memory.GetPtr(int64(offset), 32)).Int64())
+                        offset = offset + 32
+                        data := int(new(big.Int).SetBytes(callContext.memory.GetPtr(int64(offset), 32)).Int64())
+                        offset = offset + 32
+                        temp = temp + core * data
+                }
+        }
+        
+        callContext.memory.Set32(0, big.NewInt(int64(temp)))
+        return nil, nil
+}
+```
 
-var temp int = 0
-var i, j int
+## 池化指令
 
-for i = 0; i < core_row; i++ {
-    for j = 0; j < core_column; j++ {
-            temp = temp + core[i][j] * core[i][j]
-    }
+``` go
+func opPool(pc *uint64, interpreter *EVMInterpreter, callContext *callCtx) ([]byte, error){
+        offset := 0
+        pool_row := int(new(big.Int).SetBytes(callContext.memory.GetPtr(int64(offset), 32)).Int64())
+        //offset = offset + 32 
+        var max_val int = 0
+        var i int
+        for i = 0; i < pool_row * pool_row; i++ {
+                core := int(new(big.Int).SetBytes(callContext.memory.GetPtr(int64(offset), 32)).Int64())
+                if i==0 {
+                        max_val = core
+                }else{
+                        if core > max_val{
+                                max_val = core
+                        }
+                }
+                offset = offset + 32
+        }
+        callContext.memory.Set32(0, big.NewInt(int64(max_val)))
+        return nil, nil
 }
 
-x, y := callContext.stack.pop(), callContext.stack.peek()
-
-math.U256(y.Sub(x, y))
-a := int64(temp)
-
-math.U256(y.Sub(big.NewInt(a), y))
-interpreter.intPool.putOne(x)
-
-return nil, nil
 ```
