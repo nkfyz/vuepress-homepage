@@ -22,7 +22,7 @@ const filehelper = require('./initPage.js');
 module.exports = {
   title: "Yaozheng Fang's Documents",
   description: "ICS Lab Rights.",
-  head: [["link", { rel: "icon", href: `https://github.com/nkfyz/vuepress-homepage/blob/master/docs/src/logo.png` }]],
+  head: [["link", { rel: "icon", href: `/src/logo.png` }]],
   base: "/",
   dest: "./dist",
 
