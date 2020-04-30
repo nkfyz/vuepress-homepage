@@ -4,9 +4,9 @@ function getSidebar(dir) {
     const sidebar = files.map(file => {
         let fileName = file.split('.')[0]
         if (fileName.toUpperCase() == 'README') {
-            return ''
+            //return ''
         }
-        else {
+        if (fileName.toUpperCase() != 'README') {
             return fileName
         }
     })
@@ -56,7 +56,7 @@ function genSidebarConfig (children = [''], collapsable) {
   var arr = new Array();
     arr.push({title:'写在前面', children: ['/docs/'], collapsable},{
       title : '文档',
-      children : ['/docs/05isa'],
+      children,
       collapsable
     })
   return arr;
