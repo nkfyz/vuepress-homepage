@@ -3,7 +3,7 @@ function getSidebar(dir) {
     const files = fs.readdirSync(`${__dirname}/../${dir}`)
     const sidebar = files.map(file => {
         let fileName = file.split('.')[0]
-        if (fileName.toUpperCase() == 'README') {
+        if (fileName.toUpperCase() == '') {
             return ''
         }
         else {
@@ -54,7 +54,7 @@ module.exports = {
 
 function genSidebarConfig (children = [''], collapsable) {
   var arr = new Array();
-    arr.push({title:'写在前面', children: ['/perface/'], collapsable},{
+    arr.push({title:'写在前面', children: ['/docs/'], collapsable},{
       title : '文档',
       children,
       collapsable
