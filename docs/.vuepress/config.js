@@ -22,7 +22,7 @@ const filehelper = require('./initPage.js');
 module.exports = {
   title: "Yaozheng Fang's Documents",
   description: "ICS Lab Rights.",
-  head: [["link", { rel: "icon", href: `/logo.png` }]],
+  head: [["link", { rel: "icon", href: `https://github.com/nkfyz/vuepress-homepage/blob/master/docs/src/logo.png` }]],
   base: "/",
   dest: "./dist",
 
@@ -56,7 +56,7 @@ function genSidebarConfig (children = [''], collapsable) {
   var arr = new Array();
     arr.push({title:'写在前面', children: ['/docs/'], collapsable},{
       title : '文档',
-      children,
+      children : ['/docs/05isa'],
       collapsable
     })
   return arr;
