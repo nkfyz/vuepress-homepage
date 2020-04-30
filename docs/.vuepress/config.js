@@ -3,7 +3,7 @@ function getSidebar(dir) {
     const files = fs.readdirSync(`${__dirname}/../${dir}`)
     const sidebar = files.map(file => {
         let fileName = file.split('.')[0]
-        if (fileName.toUpperCase() == '') {
+        if (fileName.toUpperCase() == 'INDEX') {
             return ''
         }
         else {
