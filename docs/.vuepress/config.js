@@ -52,11 +52,11 @@ module.exports = {
  
 };
 
-function genSidebarConfig (children = [''], collapsable) {
+function genSidebarConfig (children, collapsable) {
   var arr = new Array();
     arr.push({title:'写在前面', children: ['/docs/'], collapsable},{
       title : '文档',
-      children,
+      children: children,
       collapsable
     })
   return arr;
