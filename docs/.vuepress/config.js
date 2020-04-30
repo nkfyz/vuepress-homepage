@@ -54,7 +54,7 @@ module.exports = {
 
 function genSidebarConfig (children = [''], collapsable) {
   var arr = new Array();
-    arr.push({title:'写在前面', children: ['/docs/'], collapsable},{
+    arr.push({title:'写在前面', children: ['/perface/'], collapsable},{
       title : '文档',
       children,
       collapsable
