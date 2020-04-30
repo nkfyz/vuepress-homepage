@@ -6,7 +6,7 @@ function getSidebar(dir) {
         if (fileName.toUpperCase() == 'README') {
             //return ''
         }
-        if (fileName.toUpperCase() != 'README') {
+        else {
             return fileName
         }
     })
