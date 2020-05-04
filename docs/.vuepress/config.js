@@ -4,7 +4,7 @@ function getSidebar(dir) {
     const sidebar = files.map(file => {
         let fileName = file.split('.')[0]
         if (fileName.toUpperCase() == 'README') {
-            //return ''
+            return ''
         }
         else {
             return fileName
